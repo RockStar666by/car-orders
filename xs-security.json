@@ -1,0 +1,22 @@
+{
+  "xsappname": "cap-book-orders-app",
+  "tenant-mode": "dedicated",
+  "description": "security profile of called application",
+  "scopes": [
+    {
+      "name": "uaa.user",
+      "description": "UAA"
+    }
+  ],
+  "attributes": [],
+  "role-templates": [
+    {
+      "name": "Token_Exchange",
+      "description": "UAA",
+      "scope-references": [
+        "uaa.user"
+      ],
+      "attribute-references": []
+    }
+  ]
+}

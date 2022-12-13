@@ -1,0 +1,137 @@
+_schema-version: "3.1"
+ID: cap-book-orders-app
+description: A simple CAP project.
+version: 1.0.0
+modules:
+- name: cap-book-orders-app-srv
+  type: nodejs
+  path: gen/srv
+  requires:
+  - name: cap-book-orders-app-db
+  - name: cap-book-orders-app-auth
+  provides:
+  - name: srv-api
+    properties:
+      srv-url: ${default-url}
+  parameters:
+    buildpack: nodejs_buildpack
+  build-parameters:
+    builder: npm-ci
+- name: cap-book-orders-app-db-deployer
+  type: hdb
+  path: gen/db
+  requires:
+  - name: cap-book-orders-app-db
+  parameters:
+    buildpack: nodejs_buildpack
+- name: cap-library-app-destination-content
+  type: com.sap.application.content
+  requires:
+    - name: cap-book-orders-app-destination-service
+      parameters:
+        content-target: true
+    - name: cap-book-orders-app-repo-host
+      parameters:
+        service-key:
+          name: cap-book-orders-app-repo-host-key
+    - name: cap-book-orders-app-auth
+      parameters:
+        service-key:
+          name: cap-book-orders-app-auth-key
+  parameters:
+    content:
+      instance:
+        destinations:
+          - Name: bookorder_cap_book_orders_app_repo_host
+            ServiceInstanceName: cap-book-orders-app-html5-srv
+            ServiceKeyName: cap-book-orders-app-repo-host-key
+            sap.cloud.service: bookorder
+          - Authentication: OAuth2UserTokenExchange
+            Name: bookorder_cap_book_orders_app_auth
+            ServiceInstanceName: cap-book-orders-app-xsuaa-service
+            ServiceKeyName: cap-book-orders-app-auth-key
+            sap.cloud.service: bookorder
+        existing_destinations_policy: ignore
+  build-parameters:
+      no-source: true
+- name: cap-book-orders-app-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: cap-book-orders-app-repo-host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - orderbookui.zip
+      name: orderbookui
+      target-path: resources/
+- name: orderbookui
+  type: html5
+  path: app/orderbookui
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: cap-book-orders-app-db
+  type: com.sap.xs.hdi-container
+  parameters:
+    service: hana
+    service-plan: hdi-shared
+  properties:
+    hdi-service-name: ${service-name}
+- name: cap-book-orders-app-auth
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: cap-book-orders-app-xsuaa-service
+    service-plan: application
+- name: cap-book-orders-app-repo-host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: cap-book-orders-app-html5-srv
+    service-plan: app-host
+- name: cap-book-orders-app-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          - Authentication: NoAuthentication
+            HTML5.DynamicDestination: true
+            HTML5.ForwardAuthToken: true
+            Name: cap-book-orders-app-srv-api
+            ProxyType: Internet
+            Type: HTTP
+            URL: ~{srv-api/srv-url}
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: cap-book-orders-app-destination-service
+    service-plan: lite
+  requires:
+  - name: srv-api
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+  - builder: custom
+    commands:
+    - npm ci
+    - npx -p @sap/cds-dk cds build --production
