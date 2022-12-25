@@ -9,6 +9,7 @@ modules:
   requires:
   - name: cap-book-orders-app-db
   - name: cap-book-orders-app-auth
+  - name: cap-book-orders-app-destination-service
   provides:
   - name: srv-api
     properties:

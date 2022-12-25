@@ -5,6 +5,11 @@ annotate service.BookOrders with @(
         SelectionFields     : [status_ID],
         Identification      : [
             {Value : orderUUID},
+            {   
+                $Type : 'UI.DataFieldForAction',
+                Action : 'OrderBookService.orderBook',
+                Label : '{i18n>orderBook}'
+            },
             {
                 $Type  : 'UI.DataFieldForAction',
                 Action : 'OrderBookService.sendBook',
@@ -12,7 +17,7 @@ annotate service.BookOrders with @(
             },
             {
                 $Type  : 'UI.DataFieldForAction',
-                Action : 'OrderBookService.approvebook',
+                Action : 'OrderBookService.approveBook',
                 Label  : '{i18n>approveBook}'
             },
         ],
