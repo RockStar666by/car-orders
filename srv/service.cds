@@ -5,7 +5,6 @@ service OrderBookService {
     entity BookOrders as projection on book.BookOrders actions {
         action sendBook();
         action approveBook();
-        action orderBook(Quantity: Integer @title : 'Order Quantity');
     };
     entity Statuses   as projection on book.Statuses;
 }

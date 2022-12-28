@@ -14,5 +14,4 @@ module.exports = cds.service.impl(async function () {
 
   this.on("approveBook", "BookOrders", wf.approveBook);
   this.on("sendBook", "BookOrders", cpi.sendBook);
-  this.on("orderBook", "Books", cpi.orderBook);
 });

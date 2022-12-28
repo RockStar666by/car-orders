@@ -34,6 +34,26 @@
                     "localUri": "annotations/annotation.xml"
                 }
             }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "orderbookui-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "BookOrders",
+                    "action": "manage",
+                    "title": "{{appTitle}}",
+                    "subTitle": "{{appSubTitle}}",
+                    "icon": "sap-icon://customer",
+                    "indicatorDataSource": {
+                        "dataSource": "mainService",
+                        "path": "count",
+                        "refresh": 10
+                    }
+                }
+            }
         }
     },
     "sap.ui": {
