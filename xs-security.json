@@ -1,5 +1,5 @@
 {
-  "xsappname": "cap-book-orders-app",
+  "xsappname": "car-orders-app",
   "tenant-mode": "dedicated",
   "description": "security profile of called application",
   "scopes": [

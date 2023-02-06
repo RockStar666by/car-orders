@@ -1,16 +1,16 @@
-using epam.sap.dev.orderbook as book from '../db/schema';
+using epam.sap.dev.ordercar as car from '../db/schema';
 using sap.common as common from '@sap/cds/common';
 
-service OrderBookService {
-    entity BookOrders as projection on book.BookOrders actions {
-        action sendBook();
-        action approveBook();
+service OrderCarService {
+    entity CarOrders as projection on car.CarOrders actions {
+        action sendCar();
+        action approveCar();
     };
-    entity Statuses   as projection on book.Statuses;
+    entity Statuses   as projection on car.Statuses;
 }
 
 service TechnicalService @(requires : 'system-user') {
-    entity BookOrders as projection on book.BookOrders;
-    entity Statuses   as projection on book.Statuses;
+    entity CarOrders as projection on car.CarOrders;
+    entity Statuses   as projection on car.Statuses;
     entity Currencies as projection on common.Currencies;
 }

@@ -1,4 +1,4 @@
-namespace epam.sap.dev.orderbook;
+namespace epam.sap.dev.ordercar;
 
 using {managed} from '@sap/cds/common';
 using {
@@ -6,14 +6,15 @@ using {
     Currency
 } from './common';
 
-entity BookOrders : managed {
+entity CarOrders : managed {
     key orderUUID         : UUID;
-        bookUUID          : UUID;
-        bookOrderID       : Integer;
-        bookName          : String(60);
-        authorUUID        : UUID;
-        authorfirstName   : String(15);
-        authorlastName    : String(15);
+        carUUID           : UUID;
+        carOrderID       : Integer;
+        make            : String(40);
+        model           : String(40);
+        officeUUID        : UUID;
+        officeCity        : String(40);
+        officeStreet      : String(40);
         CurrencyCode      : Currency;
         LocalCurrencyCode : Currency;
         price             : Decimal(15, 2);

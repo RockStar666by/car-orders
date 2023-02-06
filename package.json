@@ -1,5 +1,5 @@
 {
-  "name": "cap-book-orders-app",
+  "name": "car-orders-app",
   "version": "1.0.0",
   "description": "A simple CAP project.",
   "repository": "<Add your repository here>",
@@ -22,8 +22,8 @@
   },
   "scripts": {
     "start": "cds run",
-    "watch-orderbookui": "cds watch --open orderbookui/webapp/index.html?sap-ui-xx-viewCache=false",
-    "undeploy": "cf undeploy cap-book-orders-app --delete-services --delete-service-keys --delete-service-brokers",
+    "watch-ordercarui": "cds watch --open ordercarui/webapp/index.html?sap-ui-xx-viewCache=false",
+    "undeploy": "cf undeploy car-orders-app --delete-services --delete-service-keys --delete-service-brokers",
     "build": "rimraf resources mta_archives && mbt build --mtar archive",
     "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
   },
@@ -67,7 +67,7 @@
         "workflowService": {
           "kind": "rest",
           "credentials": {
-            "destination": "WORKFLOW_APPROVE_BOOK_ORDER"
+            "destination": "WORKFLOW_APPROVE_CAR_ORDER"
           }
         },
         "CPIDestination": {
@@ -78,11 +78,11 @@
         }
       },
       "db": {
-        "kind": "sql"
+        "kind": "hana-cloud"
       }
     }
   },
   "sapux": [
-    "app/orderbookui"
+    "app/ordercarui"
   ]
 }
