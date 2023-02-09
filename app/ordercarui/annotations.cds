@@ -57,9 +57,9 @@ annotate service.CarOrders with @(
             },
             {
                 $Type             : 'UI.DataField',
-                Value             : price,
+                Value             : rent,
                 ![@UI.Importance] : #High,
-                Label             : '{i18n>price}'
+                Label             : '{i18n>rent}'
             },
             {
                 $Type             : 'UI.DataField',
@@ -137,8 +137,8 @@ annotate service.CarOrders with @(
             },
             {
                 $Type : 'UI.DataField',
-                Value : price,
-                Label : '{i18n>price}'
+                Value : rent,
+                Label : '{i18n>rent}'
             },
             {
                 $Type : 'UI.DataField',

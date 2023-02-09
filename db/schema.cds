@@ -9,15 +9,15 @@ using {
 entity CarOrders : managed {
     key orderUUID         : UUID;
         carUUID           : UUID;
-        carOrderID       : Integer;
-        make            : String(40);
-        model           : String(40);
+        carOrderID        : Integer;
+        make              : String(40);
+        model             : String(40);
         officeUUID        : UUID;
         officeCity        : String(40);
         officeStreet      : String(40);
         CurrencyCode      : Currency;
         LocalCurrencyCode : Currency;
-        price             : Decimal(15, 2);
+        rent             : Decimal(15, 2);
         quantity          : Integer;
         status            : Association to one Statuses;
         totalPrice        : Decimal(15, 2);

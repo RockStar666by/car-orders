@@ -1,2 +1,2 @@
-orderUUID;carUUID;carOrderID;make;model;officeUUID;officeCity;officeStreet;CurrencyCode_code;status_ID;price;quantity;totalPrice;LocalCurrencycode_code
+orderUUID;carUUID;carOrderID;make;model;officeUUID;officeCity;officeStreet;CurrencyCode_code;status_ID;rent;quantity;totalPrice;LocalCurrencycode_code
 32ca5208-678d-4d7a-9db9-003ef21b6543;32ca5208-698d-4d7a-9db9-003ef21b6222;1;1;1;1;Houston;7910 Highmeadow Dr;USD;1;45;2;90;BYN

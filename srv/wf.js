@@ -5,7 +5,7 @@ module.exports = {
   approveCar: approveCar,
 };
 
-const { CarOrders } = cds.entities("epam.sap.dev.orderCar");
+const { CarOrders } = cds.entities("epam.sap.dev.ordercar");
 
 async function approveCar(req) {
   try {
@@ -14,7 +14,7 @@ async function approveCar(req) {
     let instance = await cds.run(query);
     let status_ID = instance[0].status_ID;
     if (status_ID == "1" || status_ID == "4") {
-      let price = parseFloat(instance[0].price);
+      let rent = parseFloat(instance[0].rent);
       let totalPrice = parseFloat(instance[0].totalPrice);
       let totalLocal = parseFloat(instance[0].totalLocal);
       const payload = {
@@ -32,7 +32,7 @@ async function approveCar(req) {
             officeStreet: instance[0].officeStreet,
             CurrencyCode_code: instance[0].CurrencyCode_code,
             LocalCurrencyCode_code: instance[0].LocalCurrencyCode_code,
-            price: price,
+            rent: rent,
             quantity: instance[0].quantity,
             status_ID: status_ID,
             totalPrice: totalPrice,

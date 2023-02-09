@@ -47,7 +47,7 @@
                     <ReferentialConstraint Property="LocalCurrencyCode_code" ReferencedProperty="code"/>
                 </NavigationProperty>
                 <Property Name="LocalCurrencyCode_code" Type="Edm.String" MaxLength="3"/>
-                <Property Name="price" Type="Edm.Decimal" Scale="2" Precision="15"/>
+                <Property Name="rent" Type="Edm.Decimal" Scale="2" Precision="15"/>
                 <Property Name="quantity" Type="Edm.Int32"/>
                 <NavigationProperty Name="status" Type="OrderCarService.Statuses">
                     <ReferentialConstraint Property="status_ID" ReferencedProperty="ID"/>
