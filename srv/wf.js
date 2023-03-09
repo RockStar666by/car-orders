@@ -8,8 +8,9 @@ module.exports = {
 const { CarOrders } = cds.entities("epam.sap.dev.ordercar");
 
 async function approveCar(req) {
+  console.log("REQUEST", req);
   try {
-    const { orderUUID } = req.params[0];
+    const { orderUUID } = req;
     let query = cds.read(CarOrders).where({ orderUUID: orderUUID });
     let instance = await cds.run(query);
     let status_ID = instance[0].status_ID;
@@ -26,6 +27,8 @@ async function approveCar(req) {
           },
           CarOrder: {
             orderUUID: orderUUID,
+            carOrderID: instance[0].carOrderID,
+            userID: instance[0].userID,
             make: instance[0].make,
             model: instance[0].model,
             officeCity: instance[0].officeCity,

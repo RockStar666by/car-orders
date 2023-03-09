@@ -3,7 +3,7 @@ using {epam.sap.dev.ordercar as rent} from '../../db/schema';
 annotate rent.CarOrders {
     status       @Common.ValueList : {
         CollectionPath  : 'Statuses',
-        Label           : '',
+        Label           : 'i18n>status',
         Parameters      : [
             {
                 $Type             : 'Common.ValueListParameterInOut',

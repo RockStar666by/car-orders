@@ -10,6 +10,7 @@ entity CarOrders : managed {
     key orderUUID         : UUID;
         carUUID           : UUID;
         carOrderID        : Integer;
+        userID            : String(40);
         make              : String(40);
         model             : String(40);
         officeUUID        : UUID;
@@ -17,9 +18,9 @@ entity CarOrders : managed {
         officeStreet      : String(40);
         CurrencyCode      : Currency;
         LocalCurrencyCode : Currency;
-        rent             : Decimal(15, 2);
+        rent              : Decimal(15, 2);
         quantity          : Integer;
-        status            : Association to one Statuses;
+        status            : Association to One Statuses;
         totalPrice        : Decimal(15, 2);
         totalLocal        : Decimal(15, 2);
 }

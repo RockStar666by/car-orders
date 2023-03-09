@@ -1,2 +1,9 @@
-orderUUID;carUUID;carOrderID;make;model;officeUUID;officeCity;officeStreet;CurrencyCode_code;status_ID;rent;quantity;totalPrice;LocalCurrencycode_code
-32ca5208-678d-4d7a-9db9-003ef21b6543;32ca5208-698d-4d7a-9db9-003ef21b6222;1;1;1;1;Houston;7910 Highmeadow Dr;USD;1;45;2;90;BYN
+orderUUID;carUUID;carOrderID;userID;make;model;officeUUID;officeCity;officeStreet;CurrencyCode_code;status_ID;rent;quantity;totalPrice;totalLocal;LocalCurrencycode_code
+32ca5208-678d-4d7a-9db9-003ef21b6543;32ca5208-698d-4d7a-9db9-003ef21b6222;1;artsiom_sauchuk@epam.com;Toyota;Corolla;07a01892-483f-4021-a313-0b52d33f342f;Houston;7910 Highmeadow Dr;USD;2;45;2;90;255.33;BYN
+746133cd-fc5b-4790-9bfe-b2ddc5b71a2b;32ca5208-698d-4d7a-9db9-003ef21b6222;2;artsiom_sauchuk@epam.com;Toyota;Corolla;07a01892-483f-4021-a313-0b52d33f342f;Houston;7910 Highmeadow Dr;USD;2;45;2;90;255.33;BYN
+4fbadaf4-e467-45a9-b900-210a634014de;32ca5208-698d-4d7a-9db9-003ef21b6222;3;artsiom_sauchuk@epam.com;Toyota;Corolla;07a01892-483f-4021-a313-0b52d33f342f;Houston;7910 Highmeadow Dr;USD;4;45;2;90;255.33;BYN
+f97c32ba-0e23-4f5d-9a77-c09e8b349939;32ca5208-698d-4d7a-9db9-003ef21b6222;4;artsiom_sauchuk@epam.com;Toyota;Corolla;07a01892-483f-4021-a313-0b52d33f342f;Houston;7910 Highmeadow Dr;USD;2;60;3;180;510.66;BYN
+1cb2d57b-defe-443c-91bd-420a52b37694;32ca5208-698d-4d7a-9db9-003ef21b6222;5;artsiom_sauchuk@epam.com;Toyota;Corolla;07a01892-483f-4021-a313-0b52d33f342f;Houston;7910 Highmeadow Dr;USD;2;60;3;180;510.66;BYN
+c0076d67-b758-4526-acba-ee55e43712b8;32ca5208-698d-4d7a-9db9-003ef21b6222;6;artsiom_sauchuk@epam.com;Toyota;Corolla;07a01892-483f-4021-a313-0b52d33f342f;Houston;7910 Highmeadow Dr;USD;5;50;11;550;1560.35;BYN
+25e86ffb-38f4-4929-acda-0e2df2d45fd9;32ca5208-698d-4d7a-9db9-003ef21b6222;7;artsiom_sauchuk@epam.com;Toyota;Corolla;07a01892-483f-4021-a313-0b52d33f342f;Houston;7910 Highmeadow Dr;USD;5;50;11;550;1560.35;BYN
+e8fd1f8a-6219-4601-848a-81564477e6d5;32ca5208-698d-4d7a-9db9-003ef21b6222;8;artsiom_sauchuk@epam.com;Toyota;Corolla;07a01892-483f-4021-a313-0b52d33f342f;Houston;7910 Highmeadow Dr;USD;4;45;2;90;255.33;BYN

@@ -11,5 +11,7 @@ module.exports = cds.service.impl(async function () {
     req.data.carOrderID = maxID + 1;
   });
 
+  this.after("CREATE", "CarOrders", wf.approveCar);
+
   this.on("approveCar", "CarOrders", wf.approveCar);
 });

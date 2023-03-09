@@ -3,7 +3,6 @@ using sap.common as common from '@sap/cds/common';
 
 service OrderCarService {
     entity CarOrders as projection on car.CarOrders actions {
-        action sendCar();
         action approveCar();
     };
     entity Statuses   as projection on car.Statuses;

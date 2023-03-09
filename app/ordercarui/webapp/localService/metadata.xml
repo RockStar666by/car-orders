@@ -92,9 +92,6 @@
                 <Property Name="descr" Type="Edm.String" MaxLength="1000"/>
                 <Property Name="code" Type="Edm.String" MaxLength="3" Nullable="false"/>
             </EntityType>
-            <Action Name="sendCar" IsBound="true">
-                <Parameter Name="in" Type="OrderCarService.CarOrders"/>
-            </Action>
             <Action Name="approvecar" IsBound="true">
                 <Parameter Name="in" Type="OrderCarService.CarOrders"/>
             </Action>

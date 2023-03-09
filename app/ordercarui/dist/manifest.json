@@ -49,7 +49,7 @@
                     "icon": "sap-icon://customer",
                     "indicatorDataSource": {
                         "dataSource": "mainService",
-                        "path": "count",
+                        "path": "/dynamic_dest/car-orders-app-srv-api/technical/CarOrders/$count",
                         "refresh": 10
                     }
                 }
@@ -134,6 +134,8 @@
                     "options": {
                         "settings": {
                             "entitySet": "CarOrders",
+                            "initialLoad": "Enabled",
+                            "stickyMultiTabHeader": false,
                             "variantManagement": "Page",
                             "navigation": {
                                 "CarOrders": {
@@ -141,6 +143,32 @@
                                         "route": "CarOrdersObjectPage"
                                     }
                                 }
+                            },
+                            "views": {
+                                "showCounts": true,
+                                "paths": [
+                                    {
+                                        "key": "tab1",
+                                        "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#all",
+                                        "visible": "true"
+                                    },
+                                    {
+                                        "key": "tab2",
+                                        "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#opened"
+                                    },
+                                    {
+                                        "key": "tab3",
+                                        "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#senttoapprove"
+                                    },
+                                    {
+                                        "key": "tab4",
+                                        "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#closed"
+                                    },
+                                    {
+                                        "key": "tab5",
+                                        "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#rejected"
+                                    }
+                                ]
                             }
                         }
                     }
